@@ -1,8 +1,8 @@
 {
   "Procon IO": {
     "prefix": "proconio",
-    "body": "use proconio::input;\n\nfn main() {\n\t$0\n}",
-    "description": "setup for atcoder"
+    "body": "use proconio::input;\n$0",
+    "description": "proconio::inputのimport（既存のmainと併用可能）"
   },
   "Procon IO Input": {
     "prefix": "input",
@@ -140,5 +140,10 @@
     "prefix": "stdr2",
     "body": "let [${1:a}, ${2:b}]: [i64; 2] = read_vi().try_into().unwrap();$0",
     "description": "read_vi()で1行の整数2個を個別変数へ（read_vi関数が必要）"
+  },
+  "Prefix Sum (i64)": {
+    "prefix": "pfxsum",
+    "body": "let mut ${2:p} = vec![0i64; ${1:a}.len() + 1];\nfor i in 0..${1:a}.len() {\n    ${2:p}[i + 1] = ${2:p}[i] + ${1:a}[i];\n}\n$0",
+    "description": "i64配列の累積和。aとpを入力する（必要なら型を変更）"
   }
 }
