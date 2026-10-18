@@ -1,4 +1,5 @@
-// AtCoder 用テンプレート（Rust、外部クレートなし）
+// 汎用Scannerの提出用テンプレート（Rust、外部クレートなし）
+// ファイル名abc.rsは以前からの互換用。AtCoder以外でも使用できる。
 // 著者: rebuildup
 //
 // ライブラリの関数をコピーした場合は、コンテスト前に公開済みの
@@ -43,6 +44,7 @@ fn main() {
     let mut sc = Scanner::new();
 
     // ここから問題ごとの処理を記述する。
+    // Scanner::next() は空白区切り。配列が複数行でも同様に読める。
     // 例: let n: usize = sc.next();
     // 例: let a: Vec<i64> = (0..n).map(|_| sc.next()).collect();
 
