@@ -104,8 +104,8 @@
       "ANS",
       "ans"
     ],
-    "body": "println!(\"{}\", ${1:ans});$0",
-    "description": "任意の答えを出力"
+    "body": "println!(\"{${1:ans}}\");$0",
+    "description": "変数名を指定して答えを出力（式の出力にはpl）"
   },
   "Yes": {
     "prefix": [
