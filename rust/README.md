@@ -6,7 +6,7 @@
 
 **[最小の署名付きテンプレート `template.rs`](template.rs)** — `main()`と`return;`、短い出典リンク・GitHub/AtCoderアカウント情報、末尾のメモ・参考リンク欄。
 
-入力関数などは必要な問題だけ[スニペット](snippets/rust.json)から追加する。提出時の使いやすさを優先し、最初から関数を詰め込まない。
+入力関数などは必要な問題だけ[スニペットの選び方](スニペット.md)から追加する。提出時の使いやすさを優先し、最初から関数を詰め込まない。
 
 原本は [`templates/contest.rs`](templates/contest.rs)。`main` 更新時にActionsが短い出典リンク付きの `template.rs` を再生成する。調べた記事・コピー元のURLは末尾の `Notes / refs` に追加する。
 
@@ -14,7 +14,7 @@
 ## 基礎
 
 - [入出力](基礎/入出力.md) — `read_i()`・`read_vi()`・`read_s()`、バイト列、複数値、出力
-- [スニペット](スニペット.md) — エディタで定型文を短く展開する
+- **[スニペットの選び方・使い方](スニペット.md)** — 常用候補6件、条件付き13件、参照のみ7件。使用実績と理解度で調整する
 
 ## アルゴリズム
 
@@ -31,7 +31,7 @@
 
 ## 補助資料・コード
 
-- [使用中のスニペットJSON](snippets/rust.json) / [元データ](snippets/rust.original.json)
+- [最小の候補セット（6件）](snippets/core.json) / [全定義（26件）](snippets/rust.json) / [元データ（20件）](snippets/rust.original.json)
 - [行単位入力](templates/line_input.rs) / [proconio](templates/proconio.rs) / [Scanner](templates/abc.rs)
 - [テスト可能な参考実装](src/lib.rs) — `rust/src/` にある関数集。通常の書き方として優先するものではない
 - [AtCoderの環境・ツール](../atcoder/環境とツール.md)
