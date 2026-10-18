@@ -158,5 +158,10 @@
     "prefix": "hsetn",
     "body": "use std::collections::HashSet;\nlet mut ${1:d} = HashSet::new();\nfor _ in 0..${2:n} {\n    ${1:d}.insert(${3:read_i()});\n}\nprintln!(\"{}\", ${1:d}.len());\n$0",
     "description": "n行のi64から種類数を出力（n宣言・read_i関数が必要。hashsetとは別に使う）"
+  },
+  "Grid can visit": {
+    "prefix": "gridvisit",
+    "body": "fn can_visit(prev: [i64; 3], next: [i64; 3]) -> bool {\n    let dt = next[0] - prev[0];\n    let dx = (next[1] - prev[1]).abs();\n    let dy = (next[2] - prev[2]).abs();\n    let dist = dx + dy;\n    dist <= dt && (dt - dist) % 2 == 0\n}\n$0",
+    "description": "障害物なしで毎秒上下左右に必ず1マス移動するときの到達判定。各配列は[t, x, y]"
   }
 }
