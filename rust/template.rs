@@ -1,9 +1,7 @@
 // GH: rebuildup | AtCoder: rebuild | Data use: unrestricted
-// github.com/rebuildup/atcoder-kit/tree/507f4204aeec
+// github.com/rebuildup/atcoder-kit/tree/15f53c3a6dca
 
-fn main() {
-    return;
-}
+fn main() {}
 
 // Notes / refs:
 // -
