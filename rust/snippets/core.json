@@ -1,0 +1,41 @@
+{
+  "Standard I I64": {
+    "prefix": "stdri",
+    "body": "fn read_i() -> i64 {\n\tlet mut b = String::new();\n\tstd::io::stdin().read_line(&mut b).unwrap();\n\tb.trim().parse::<i64>().unwrap()\n}",
+    "description": "read i64 from stdin"
+  },
+  "Standard I Vec I64": {
+    "prefix": "stdrvi",
+    "body": "fn read_vi() -> Vec<i64> {\n\tlet mut b = String::new();\n\tstd::io::stdin().read_line(&mut b).unwrap();\n\tb.trim().split_whitespace().map(|s| s.parse::<i64>().unwrap()).collect()\n}",
+    "description": "read vector of i64 from stdin"
+  },
+  "Standard I String": {
+    "prefix": "stdrs",
+    "body": "fn read_s() -> String {\n\tlet mut b = String::new();\n\tstd::io::stdin().read_line(&mut b).unwrap();\n\tb.trim().to_string()\n}",
+    "description": "read string from stdin"
+  },
+  "Answer": {
+    "prefix": [
+      "ANS",
+      "ans"
+    ],
+    "body": "println!(\"{}\", ${1:ans});$0",
+    "description": "任意の答えを出力"
+  },
+  "Yes": {
+    "prefix": [
+      "YES",
+      "yes"
+    ],
+    "body": "println!(\"Yes\");$0",
+    "description": "Yesを1行で出力"
+  },
+  "No": {
+    "prefix": [
+      "NO",
+      "no"
+    ],
+    "body": "println!(\"No\");$0",
+    "description": "Noを1行で出力"
+  }
+}

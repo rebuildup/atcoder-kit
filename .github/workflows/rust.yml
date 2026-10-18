@@ -42,5 +42,16 @@ jobs:
       - name: VSCode用スニペットを検証
         run: |
           python3 -c "import json; from pathlib import Path; d=json.loads(Path('snippets/rust.json').read_text()); p=[a for v in d.values() for a in (v['prefix'] if isinstance(v['prefix'], list) else [v['prefix']])]; assert len(p)==len(set(p)); assert all(v.get('body') for v in d.values())"
+      - name: 常用候補と全スニペットの一致を確認
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          full = json.loads(Path("snippets/rust.json").read_text())
+          core = json.loads(Path("snippets/core.json").read_text())
+          assert len(core) == 6
+          assert all(full.get(name) == definition for name, definition in core.items())
+          PY
       # proconioのサンプルはコンテスト用Cargo.tomlに依存が必要。
       # このライブラリ本体には依存を増やさず、当面はドキュメント扱いとする。
