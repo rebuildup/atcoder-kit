@@ -28,5 +28,12 @@ jobs:
         run: cargo fmt --all -- --check
       - name: 単体テスト
         run: cargo test --all-targets
-      - name: 提出用テンプレートをコンパイル
-        run: rustc --edition=2021 templates/abc.rs -o /tmp/atcoder-kit-template
+      - name: Scannerテンプレートをコンパイル
+        run: rustc --edition=2021 templates/abc.rs -o /tmp/atcoder-kit-scanner
+      - name: 行単位スニペットのサンプルを実行
+        run: |
+          rustc --edition=2021 templates/line_input.rs -o /tmp/atcoder-kit-line-input
+          actual=$(printf '10 20 30\nhello\n' | /tmp/atcoder-kit-line-input)
+          test "$actual" = "60 hello"
+      # proconioのサンプルはコンテスト用Cargo.tomlに依存が必要。
+      # このライブラリ本体には依存を増やさず、当面はドキュメント扱いとする。
