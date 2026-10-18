@@ -145,5 +145,18 @@
     "prefix": "pfxsum",
     "body": "let mut ${2:p} = vec![0i64; ${1:a}.len() + 1];\nfor i in 0..${1:a}.len() {\n    ${2:p}[i + 1] = ${2:p}[i] + ${1:a}[i];\n}\n$0",
     "description": "i64配列の累積和。aとpを入力する（必要なら型を変更）"
+  },
+  "HashSet (new)": {
+    "prefix": [
+      "hashset",
+      "hset"
+    ],
+    "body": "use std::collections::HashSet;\nlet mut ${1:d} = HashSet::new();\n$0",
+    "description": "HashSetを初期化（main内でもuse可能。要素の型はinsert等から推論）"
+  },
+  "HashSet (count distinct lines)": {
+    "prefix": "hsetn",
+    "body": "use std::collections::HashSet;\nlet mut ${1:d} = HashSet::new();\nfor _ in 0..${2:n} {\n    ${1:d}.insert(${3:read_i()});\n}\nprintln!(\"{}\", ${1:d}.len());\n$0",
+    "description": "n行のi64から種類数を出力（n宣言・read_i関数が必要。hashsetとは別に使う）"
   }
 }
