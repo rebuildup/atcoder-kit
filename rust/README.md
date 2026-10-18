@@ -12,6 +12,16 @@
 | ソート済み配列の挿入位置 | [binary_search.rs](src/search/binary_search.rs) | lower: 以上、upper: より大きい |
 | 区間の合計を何度も求める | [prefix_sum.rs](src/array/prefix_sum.rs) | `[l, r)` の半開区間 |
 
+## 実際の入力・スニペット
+
+- [proconioテンプレート](templates/proconio.rs) — `cargo-compete` で `proconio` を使うとき（Cargoの依存関係が必要）
+- [使用中のRustスニペット](snippets/rust.json) — `proconio`、`nibun`、`ketawa` など、20項目
+- [元データからの修正内容](../docs/スニペット.md) — 整理内容と展開上の注意点
+- [開発環境](../docs/開発環境と使い方.md) — `cargo-compete` と `ac-test` の連携
+- [外部資料](../docs/外部資料.md) — Rust標準APIや競プロ解説を必要に応じて参照
+
+**二分探索:** 単に境界の位置が欲しいなら `a.partition_point(|&v| v < x)` でもよい。自分の実装と標準APIの両方を残す。
+
 ## 動作確認
 
 ```sh
