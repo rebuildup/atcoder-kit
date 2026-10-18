@@ -2,6 +2,15 @@
 
 **使いたい処理を分野から探す**ための入口。
 
+## 提出用テンプレート
+
+**[署名付きテンプレート `template.rs`](template.rs)** — AtCoderの提出時にコピーして使う。リポジトリURL・固定コミットSHA・コードの出典URLを自動挿入済み。
+
+テンプレートの中身は今使っている `read_i()` / `read_vi()` / `read_s()` と空の `main()`。**Scannerなどの仕組みは標準搭載しない**。
+
+原本は [`templates/contest.rs`](templates/contest.rs)。`main` 更新時にActionsが `template.rs` を再生成する。自作アルゴリズム等を別ファイルからコピーした場合は、その出典URLも別途追記する。
+
+
 ## 基礎
 
 - [入出力](基礎/入出力.md) — `read_i()`・`read_vi()`・`read_s()`、バイト列、複数値、出力

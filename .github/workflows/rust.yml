@@ -30,6 +30,10 @@ jobs:
         run: cargo test --all-targets
       - name: Scannerテンプレートをコンパイル
         run: rustc --edition=2021 templates/abc.rs -o /tmp/atcoder-kit-scanner
+      - name: 提出テンプレートの原本と署名付き版をコンパイル
+        run: |
+          rustc --edition=2021 templates/contest.rs -o /tmp/atcoder-kit-contest-source
+          rustc --edition=2021 template.rs -o /tmp/atcoder-kit-signed-template
       - name: 行単位スニペットのサンプルを実行
         run: |
           rustc --edition=2021 templates/line_input.rs -o /tmp/atcoder-kit-line-input
