@@ -4,11 +4,11 @@
 
 ## 提出用テンプレート
 
-**[署名付きテンプレート `template.rs`](template.rs)** — AtCoderの提出時にコピーして使う。リポジトリURL・固定コミットSHA・コードの出典URLを自動挿入済み。
+**[最小の署名付きテンプレート `template.rs`](template.rs)** — `main()`と`return;`、短い出典リンク・GitHub/AtCoderアカウント情報、末尾のメモ・参考リンク欄。
 
-テンプレートの中身は今使っている `read_i()` / `read_vi()` / `read_s()` と空の `main()`。**Scannerなどの仕組みは標準搭載しない**。
+入力関数などは必要な問題だけ[スニペット](snippets/rust.json)から追加する。提出時の使いやすさを優先し、最初から関数を詰め込まない。
 
-原本は [`templates/contest.rs`](templates/contest.rs)。`main` 更新時にActionsが `template.rs` を再生成する。自作アルゴリズム等を別ファイルからコピーした場合は、その出典URLも別途追記する。
+原本は [`templates/contest.rs`](templates/contest.rs)。`main` 更新時にActionsが短い出典リンク付きの `template.rs` を再生成する。調べた記事・コピー元のURLは末尾の `Notes / refs` に追加する。
 
 
 ## 基礎

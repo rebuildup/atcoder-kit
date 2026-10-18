@@ -42,12 +42,11 @@ jobs:
 
           source = Path("rust/templates/contest.rs").read_text(encoding="utf-8")
           header = (
-              f"// 出典リポジトリ: https://github.com/{repo}\n"
-              f"// 出典コミットSHA: {sha}\n"
-              f"// 出典コード: https://github.com/{repo}/blob/{sha}/rust/templates/contest.rs\n"
-              "// 他のファイルからコードをコピーした場合、その出典URLも追加する。\n\n"
+              f"// GH: rebuildup | AtCoder: rebuild | Data use: unrestricted\n"
+              f"// github.com/{repo}/tree/{sha[:12]}\n\n"
           )
-          Path("rust/template.rs").write_text(header + source, encoding="utf-8")
+          footer = "\n// Notes / refs:\n// -\n"
+          Path("rust/template.rs").write_text(header + source + footer, encoding="utf-8")
           PY
 
       - name: 生成結果を検証
