@@ -6,7 +6,7 @@
 
 ## Rust
 
-**[Rust提出テンプレート](rust/template.rs)** — 空の`main()`だけ。GitHub/AtCoderアカウントと短いコミットURLをActionsで自動記入。末尾にメモ・参考リンク欄。
+**[Rust提出テンプレート](rust/template.rs)** — `read<T>()` と空の`main()`を標準搭載。GitHub/AtCoderアカウントと短いコミットURLをActionsで自動記入。末尾にメモ・参考リンク欄。
 
 
 | 分野 | 探す内容 |
