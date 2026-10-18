@@ -42,7 +42,7 @@
 
 **注意:** スクリーンショットにある表示名は `AtCoder → cargo-compete testcase bridge` で、ソースの `@name ac-test` と一致しない。**同じスクリプトなのか、改名・別実装なのかは未確認。** `ac-test` と同一だと決めつけず、Tampermonkeyの対象スクリプトを開いて `@name` / `@namespace` / 送信先を確認する。
 
-[ac-test と cargo-compete の役割分担](開発環境と使い方.md#ac-test-と-cargo-compete-の役割分担) も参照。
+[ac-test と cargo-compete の役割分担](環境とツール.md#ac-test-と-cargo-compete-の役割分担) も参照。
 
 ## 次に確認すること
 
