@@ -98,5 +98,47 @@
     "prefix": "ketawa",
     "body": "fn digit_sum(mut n: u64) -> u32 {\n\tlet mut sum = 0;\n\twhile n > 0 {\n\t\tsum += (n % 10) as u32;\n\t\tn /= 10;\n\t}\n\tsum\n}",
     "description": "非負整数の各桁の和を返す（0は0）"
+  },
+  "Answer": {
+    "prefix": [
+      "ANS",
+      "ans"
+    ],
+    "body": "println!(\"{}\", ${1:ans});$0",
+    "description": "任意の答えを出力"
+  },
+  "Yes": {
+    "prefix": [
+      "YES",
+      "yes"
+    ],
+    "body": "println!(\"Yes\");$0",
+    "description": "Yesを1行で出力"
+  },
+  "No": {
+    "prefix": [
+      "NO",
+      "no"
+    ],
+    "body": "println!(\"No\");$0",
+    "description": "Noを1行で出力"
+  },
+  "Yes/No": {
+    "prefix": [
+      "YN",
+      "yn"
+    ],
+    "body": "println!(\"{}\", if ${1:ok} { \"Yes\" } else { \"No\" });$0",
+    "description": "条件に応じてYes/Noを出力"
+  },
+  "Input bytes": {
+    "prefix": "stdrb",
+    "body": "let ${1:s} = read_s().into_bytes();$0",
+    "description": "read_s()で読んだ文字列をVec<u8>へ（read_s関数が必要）"
+  },
+  "Input pair": {
+    "prefix": "stdr2",
+    "body": "let [${1:a}, ${2:b}]: [i64; 2] = read_vi().try_into().unwrap();$0",
+    "description": "read_vi()で1行の整数2個を個別変数へ（read_vi関数が必要）"
   }
 }

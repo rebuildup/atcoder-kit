@@ -36,7 +36,7 @@ impl Scanner {
             .unwrap()
             .parse::<T>()
             .ok()
-            .expect("入力を読み取れませんでした")
+            .unwrap()
     }
 }
 
