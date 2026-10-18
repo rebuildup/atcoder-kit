@@ -1,0 +1,7 @@
+# Rust のビルド結果
+**/target/
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+*.swp

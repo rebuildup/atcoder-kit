@@ -1,0 +1,32 @@
+name: Rust の動作確認
+
+on:
+  push:
+    paths:
+      - "rust/**"
+      - ".github/workflows/rust.yml"
+  pull_request:
+    paths:
+      - "rust/**"
+      - ".github/workflows/rust.yml"
+
+jobs:
+  test:
+    name: テストと整形
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v4
+      - name: Rust環境を確認
+        run: |
+          rustc --version
+          cargo --version
+      - name: コードの整形を確認
+        run: cargo fmt --all -- --check
+      - name: 単体テスト
+        run: cargo test --all-targets
+      - name: 提出用テンプレートをコンパイル
+        run: rustc --edition=2021 templates/abc.rs -o /tmp/atcoder-kit-template
