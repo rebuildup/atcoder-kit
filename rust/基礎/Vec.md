@@ -58,6 +58,24 @@ v.clear();
 
 入力から `n` 個の要素を作るときは [入出力](入出力.md) の `(0..n).map(|_| read()).collect()` を参照する。短い標準操作なので独自スニペットは追加しない。
 
+## 反転と逆順の走査
+
+```rust
+let mut v = vec![1, 3, 5];
+
+let a: Vec<_> = v.iter().rev().copied().collect();
+// a = [5, 3, 1]、v = [1, 3, 5]
+
+v.reverse();
+// v = [5, 3, 1]
+```
+
+- `v.reverse()`：元の `Vec` を反転する（`O(n)`、追加メモリ `O(1)`）。
+- `v.iter().rev()`：元の `Vec` を変更せず逆順に走査する。
+- `copied().collect()`：値をコピーして別の `Vec` に保存する（`T: Copy` の場合）。元の `v` を後から変更しても `a` には影響しない。
+
+文字列の反転は `String` に直接 `reverse()` できないため、例えば `s.chars().rev().collect::<String>()` を使う（結合文字の表示順には注意）。
+
 ## 参考
 
 - [Rust公式：Vec](https://doc.rust-lang.org/std/vec/struct.Vec.html)
