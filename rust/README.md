@@ -18,6 +18,7 @@
 - [VecDeque](基礎/VecDeque.md) — キュー・FIFO・先頭からの取り出し
 - [BinaryHeap](基礎/BinaryHeap.md) — 優先度付きキュー・最大値／最小値の取り出し
 - [HashSet](基礎/HashSet.md) — 重複排除・種類数・基本操作・スニペット
+- [map](基礎/Map.md) — HashMap・BTreeMap・出現回数・キーの昇順
 - **[スニペットの使い方・用途別一覧](スニペット.md)** — 解説から接頭辞を確認し、必要なコードだけ展開
 
 ## アルゴリズム
