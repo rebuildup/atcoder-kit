@@ -76,6 +76,27 @@ v.reverse();
 
 文字列の反転は `String` に直接 `reverse()` できないため、例えば `s.chars().rev().collect::<String>()` を使う（結合文字の表示順には注意）。
 
+## スタック（後入れ先出し）
+
+Rustでは専用の `Stack` 型ではなく、`Vec<T>` を `push()` と `pop()` で使う。後から入れた値を先に取り出す（LIFO）。
+
+```rust
+let mut st = vec![2, 4, 6];
+
+let a = *st.last().unwrap(); // 6、削除しない
+st.push(a * 2);              // [2, 4, 6, 12]
+let b = st.pop().unwrap();    // 12、末尾を削除
+let c = st.pop().unwrap();    // 6、末尾を削除
+// st = [2, 4]
+```
+
+- `push(x)`：末尾に追加（償却 `O(1)`）。
+- `pop()`：末尾を削除して `Option<T>` を返す（`O(1)`）。空なら `None`。
+- `last()`：削除せずに末尾を参照し `Option<&T>` を返す（`O(1)`）。例の `*` は整数の参照から値を取り出すため。
+- `len()` / `is_empty()`：要素数 / 空かどうか。
+
+C++ の `stack::top()` は Rust の `Vec::last()` に対応する。C++ の `stack::pop()` は値を返さないが、Rust の `Vec::pop()` は値を返す。
+
 ## 参考
 
 - [Rust公式：Vec](https://doc.rust-lang.org/std/vec/struct.Vec.html)
