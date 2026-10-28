@@ -34,6 +34,25 @@ jobs:
         run: |
           rustc --edition=2021 templates/contest.rs -o /tmp/atcoder-kit-contest-source
           rustc --edition=2021 template.rs -o /tmp/atcoder-kit-signed-template
+      - name: テンプレートreadで改行をまたぐ入力を検証
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path("templates/contest.rs").read_text(encoding="utf-8")
+          marker = "fn main(){}\n"
+          assert src.count(marker) == 1
+          main = """fn main() {
+              let n: usize = read();
+              let a: Vec<i64> = (0..n).map(|_| read()).collect();
+              let s: String = read();
+              println!("{} {s}", a.iter().sum::<i64>());
+          }
+          """
+          Path("/tmp/atcoder-kit-read.rs").write_text(src.replace(marker, main), encoding="utf-8")
+          PY
+          rustc --edition=2021 /tmp/atcoder-kit-read.rs -o /tmp/atcoder-kit-read
+          actual=$(printf ' \t4\n10 20\n30 40\nlast' | /tmp/atcoder-kit-read)
+          test "$actual" = "100 last"
       - name: 行単位スニペットのサンプルを実行
         run: |
           rustc --edition=2021 templates/line_input.rs -o /tmp/atcoder-kit-line-input

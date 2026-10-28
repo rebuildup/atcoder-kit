@@ -104,7 +104,37 @@ println!("{}", d.len());
 
 ただし `HashSet` の `use` と `read_i()` の定義が必要。**今回は `for` と `insert` の方が処理を読み取りやすいので、短くするためだけに置き換えなくてよい。**
 
+## BTreeSet：順序付き集合
+
+C++の `set` に相当する。要素は重複せず、**昇順で走査**できる。C++の `unordered_set` に相当する `HashSet` は順序を保証しない。
+
+```rust
+use std::collections::BTreeSet;
+
+let mut s = BTreeSet::from([5, 2, 5, 3]);
+s.insert(1);
+s.remove(&3);
+let a: Vec<_> = s.into_iter().collect(); // [1, 2, 5]
+```
+
+`insert`・`contains`・`remove`・`len` は `HashSet` と同様に使える。検索・追加・削除はいずれも `O(log n)`。
+
+## 集合演算
+
+```rust
+let a = BTreeSet::from([1, 2, 3]);
+let b = BTreeSet::from([2, 3, 4]);
+let common: Vec<_> = a.intersection(&b).copied().collect(); // [2, 3]
+```
+
+- `intersection(&b)`：積集合（共通部分）
+- `union(&b)`：和集合
+- `difference(&b)`：差集合（`a` にだけある値）
+
+`HashSet` でも同じ演算を使えるが、結果の走査順は保証されない。`BTreeSet` では昇順になる。
+
 ## 参考
 
+- [Rust公式：BTreeSet](https://doc.rust-lang.org/std/collections/struct.BTreeSet.html)
 - [Rust公式：HashSet](https://doc.rust-lang.org/std/collections/struct.HashSet.html)
 - [Rust by Example 日本語：HashSet](https://doc.rust-jp.rs/rust-by-example-ja/std/hash/hashset.html)

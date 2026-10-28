@@ -6,14 +6,14 @@
 
 ## Rust
 
-**[Rust提出テンプレート](rust/template.rs)** — 空の`main()`だけ。GitHub/AtCoderアカウントと短いコミットURLをActionsで自動記入。末尾にメモ・参考リンク欄。
+**[Rust提出テンプレート](rust/template.rs)** — `read<T>()` と空の`main()`を標準搭載。GitHub/AtCoderアカウントと短いコミットURLをActionsで自動記入。末尾にメモ・参考リンク欄。
 
 
 | 分野 | 探す内容 |
 | --- | --- |
-| 基礎 | [入出力](rust/基礎/入出力.md)・[HashSet](rust/基礎/HashSet.md) — 入出力・重複除去・種類数 |
+| 基礎 | [入出力](rust/基礎/入出力.md)・[Vec](rust/基礎/Vec.md)・[HashSet](rust/基礎/HashSet.md) — 入出力・可変長配列・重複除去 |
 | スニペット | [用途からスニペットを探す](rust/スニペット.md) — 解説と接頭辞を対応させて管理 |
-| アルゴリズム | [分野別の目次](rust/アルゴリズム/README.md) — [二分探索](rust/アルゴリズム/探索/二分探索.md)、[累積和](rust/アルゴリズム/配列/累積和.md) |
+| アルゴリズム | [分野別の目次](rust/アルゴリズム/README.md) — [二分探索](rust/アルゴリズム/探索/二分探索.md)、[累積和](rust/アルゴリズム/配列/累積和.md)、[ソート](rust/アルゴリズム/ソート.md) |
 | 実践 | [文字列の区間クエリ](rust/実践/文字列の区間クエリ.md) — 実際のコードをもとに改善 |
 | 全体 | [Rustの目次](rust/README.md) — スニペット・参考実装も案内 |
 
