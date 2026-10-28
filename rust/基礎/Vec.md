@@ -75,6 +75,25 @@ let product = a.iter().fold(1, |acc, &x| acc * x);       // 24
 - 積だけなら `a.iter().product::<i64>()` でもよい。いずれも `O(n)`。
 - `sum()` は全体の値を1つ返す。[累積和](../アルゴリズム/配列/累積和.md)は各位置までの合計を保存し、区間和を繰り返し調べるときに使う。
 
+## 最小値・最大値とその位置（C++ の min_element / max_element）
+
+`iter().min()` / `iter().max()` は値への参照を `Option<&T>` で返す。空配列なら `None` なので、`unwrap()` は空でないと分かっている場合だけ使う。
+
+```rust
+let a = [6, 2, 9, 2, 9];
+let lo = *a.iter().min().unwrap(); // 2
+let hi = *a.iter().max().unwrap(); // 9
+
+let first_lo = a.iter().position(|&x| x == lo).unwrap(); // 1
+let last_hi = a.iter().enumerate()
+    .max_by_key(|&(_, &x)| x).unwrap().0; // 4
+```
+
+- `position()` は条件に合う**最初の位置**を返す（見つからなければ `None`）。
+- `enumerate()` は `(添字, 要素)` を作る。`min_by_key()` は同じ最小値なら**最初**、`max_by_key()` は同じ最大値なら**最後**の位置を選ぶ。
+- C++の `min_element` / `max_element` はどちらも最初の一致位置を返す。Rustで最大値の**最初**の位置が必要なら `a.iter().position(|&x| x == hi)` を使う。
+- いずれの探索も `O(n)`。整数などコピーできる値なら `a.iter().min().copied()` で `Option<T>` を返せる。
+
 ## 反転と逆順の走査
 
 ```rust
