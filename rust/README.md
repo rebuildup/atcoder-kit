@@ -14,6 +14,7 @@
 ## 基礎
 
 - [入出力](基礎/入出力.md) — `read<T>()`・配列・文字列・出力
+- [数値操作と交換](基礎/数値操作と交換.md) — `abs`・`abs_diff`・2値の`min/max`・`swap`
 - [Vec](基礎/Vec.md) — 可変長配列・スタック・反転
 - [VecDeque](基礎/VecDeque.md) — キュー・FIFO・先頭からの取り出し
 - [BinaryHeap](基礎/BinaryHeap.md) — 優先度付きキュー・最大値／最小値の取り出し
