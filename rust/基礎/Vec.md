@@ -93,6 +93,25 @@ let even_ge_4 = a.iter()
 - 配列全体の要素数なら `a.len()` を使う。特定の値の**出現回数を何種類も**求める場合は[HashMapによる集計](Map.md#出現回数を数えるhashmap)も選択肢。
 - 区間ごとに条件を満たす個数を何度も問われるなら[累積和](../アルゴリズム/配列/累積和.md#2-値ではなく条件を満たす回数を数える)を検討する。
 
+## 条件に合う要素・位置を探す（C++ の find / find_if）
+
+配列を左から検索し、**値が欲しいなら `find()`、添字が欲しいなら `position()`** を使う。
+
+```rust
+let a = [3, 9, 4, 9, 6];
+
+let value = a.iter().find(|&&x| x > 5).copied(); // Some(9)
+let first = a.iter().position(|&x| x == 9);      // Some(1)
+let last = a.iter().rposition(|&x| x == 9);      // Some(3)
+let exists = a.contains(&7);                    // false
+let any_even = a.iter().any(|&x| x % 2 == 0);    // true
+```
+
+- `find()` は最初に条件を満たした**要素への参照**を `Option<&T>` で返す。`copied()` は整数など `Copy` な値を `Option<T>` にする。
+- `position()` は条件を満たす**最初の添字**、`rposition()` は**最後の添字**を `Option<usize>` で返す。存在しなければ `None`。上の `&&x` と `&x` の違いは、`find()` が要素への参照を条件に渡すため。
+- 存在するかだけなら、値の一致は `contains(&値)`、条件判定は `any(条件)` が短い。
+- C++の `find` / `find_if` はイテレータを返す。Rustでは**値と位置のどちらが必要か**でAPIを選ぶ。`unwrap()` は見つかると保証できる場合のみ使う。探索は最悪 `O(n)`、ソート不要。
+
 ## 最小値・最大値とその位置（C++ の min_element / max_element）
 
 `iter().min()` / `iter().max()` は値への参照を `Option<&T>` で返す。空配列なら `None` なので、`unwrap()` は空でないと分かっている場合だけ使う。
