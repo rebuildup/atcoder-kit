@@ -112,6 +112,21 @@ let any_even = a.iter().any(|&x| x % 2 == 0);    // true
 - 存在するかだけなら、値の一致は `contains(&値)`、条件判定は `any(条件)` が短い。
 - C++の `find` / `find_if` はイテレータを返す。Rustでは**値と位置のどちらが必要か**でAPIを選ぶ。`unwrap()` は見つかると保証できる場合のみ使う。探索は最悪 `O(n)`、ソート不要。
 
+### 全件・存在・不在を判定する（C++ の all_of / any_of / none_of）
+
+```rust
+let a = [2, 4, 7, 8];
+let all_even = a.iter().all(|&x| x % 2 == 0); // false
+let any_ge_7 = a.iter().any(|&x| x >= 7);     // true
+let none_negative = !a.iter().any(|&x| x < 0); // true
+
+let b = [0, 1, 4];
+let ok = b.iter().all(|&x| x >= 0 && x < 5);  // true
+```
+
+- `all()` は全要素が条件を満たすか、`any()` は1要素でも満たすかを判定する。Rustのイテレータには `none()` がないので、`!any()` で「どれも満たさない」を表す。
+- `all()` は反例が見つかると、`any()` は一致が見つかると探索を終える（最悪 `O(n)`）。空配列なら `all()` は `true`、`any()` は `false`。
+
 ## 最小値・最大値とその位置（C++ の min_element / max_element）
 
 `iter().min()` / `iter().max()` は値への参照を `Option<&T>` で返す。空配列なら `None` なので、`unwrap()` は空でないと分かっている場合だけ使う。
