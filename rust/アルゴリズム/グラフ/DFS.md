@@ -18,3 +18,7 @@ let g = vec![
 ## 再帰によるDFS
 
 現在の頂点を訪問済みにし、未訪問の隣接頂点へ再帰的に進む。
+
+```rust
+let mut seen = vec![false; g.len()];
+```
