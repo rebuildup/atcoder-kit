@@ -22,3 +22,7 @@ let g = vec![
 ```rust
 let mut seen = vec![false; g.len()];
 ```
+
+```rust
+fn dfs(v: usize) {}
+```
