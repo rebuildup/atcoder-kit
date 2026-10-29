@@ -34,3 +34,14 @@ fn dfs(v: usize, g: &[Vec<usize>], seen: &mut [bool], order: &mut Vec<usize>) {
     }
 }
 ```
+
+### 呼び出し例
+
+```rust
+let mut seen = vec![false; g.len()];
+let mut order = Vec::new();
+dfs(0, &g, &mut seen, &mut order);
+// order = [0, 1, 2, 3]
+```
+
+0→1→2と深く進み、2から戻った後に0→3へ進む。訪問順は隣接リストに書いた順番で変わる。`seen[v] = true`を再帰の前に行うのは、同じ辺を行き来しないため。
