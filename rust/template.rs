@@ -1,5 +1,5 @@
 // GH: rebuildup | AtCoder: rebuild | Data use: unrestricted
-// github.com/rebuildup/atcoder-kit/tree/1c8cf397d280
+// github.com/rebuildup/atcoder-kit/tree/0db894efc195
 
 use std::io::*;
 fn read<T:std::str::FromStr>()->T{
