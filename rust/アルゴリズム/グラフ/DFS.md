@@ -24,11 +24,12 @@ let mut seen = vec![false; g.len()];
 ```
 
 ```rust
-fn dfs(v: usize, g: &[Vec<usize>], seen: &mut [bool]) {
+fn dfs(v: usize, g: &[Vec<usize>], seen: &mut [bool], order: &mut Vec<usize>) {
     seen[v] = true;
+    order.push(v);
     for &to in &g[v] {
         if !seen[to] {
-            dfs(to, g, seen);
+            dfs(to, g, seen, order);
         }
     }
 }
