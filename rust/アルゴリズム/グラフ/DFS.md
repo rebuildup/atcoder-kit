@@ -49,3 +49,20 @@ dfs(0, &g, &mut seen, &mut order);
 ## 到達判定
 
 DFSを実行した後、`seen[target]` が `true` なら始点から目標に到達できる。
+
+## 連結成分数（無向グラフ）
+
+未訪問の頂点からDFSを開始するたび、連結成分を1つ見つけたことになる。
+
+```rust
+let mut seen = vec![false; g.len()];
+let mut order = Vec::new();
+let mut components = 0;
+for v in 0..g.len() {
+    if !seen[v] {
+        components += 1;
+        dfs(v, &g, &mut seen, &mut order);
+    }
+}
+// components = 1
+```
