@@ -101,7 +101,7 @@ println!("{}", d.len());
 
 ## BTreeSet：順序付き集合
 
-C++の `set` に相当する。要素は重複せず、**昇順で走査**できる。C++の `unordered_set` に相当する `HashSet` は順序を保証しない。
+`BTreeSet` は重複を許さず、要素を**昇順で走査**できる。`HashSet` は要素の順序を保証しない。
 
 ```rust
 use std::collections::BTreeSet;

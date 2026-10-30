@@ -32,16 +32,7 @@ while let Some(x) = q.pop_front() {
 }
 ```
 
-## C++との対応
-
-| C++ `std::queue` | Rust `VecDeque` |
-| --- | --- |
-| `q.push(x)` | `q.push_back(x)` |
-| `q.pop()` | `q.pop_front()` |
-| `q.front()` / `q.back()` | `q.front()` / `q.back()` |
-| `q.size()` / `q.empty()` | `q.len()` / `q.is_empty()` |
-
-C++の `queue::pop()` は値を返さないが、Rustの `pop_front()` は値を返す。`Vec` の `pop()` と異なり、**取り出す側は先頭**。
+`VecDeque::pop_front()` は削除した値を `Option<T>` で返す。`Vec::pop()` と異なり、**取り出す側は先頭**。
 
 キューはBFS（幅優先探索）などで使う。両端操作が必要なら、`VecDeque` は `push_front()` / `pop_back()` も使える。
 

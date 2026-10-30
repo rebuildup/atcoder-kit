@@ -1,6 +1,6 @@
 # map：HashMap と BTreeMap
 
-キーと値の組を保存する連想配列。C++ の `unordered_map` に相当するのが `HashMap`、`map` に相当するのが `BTreeMap`。
+キーと値の組を保存する連想配列。`HashMap` は順序を保証せず、`BTreeMap` はキーを昇順に管理する。
 
 | | `HashMap` | `BTreeMap` |
 | --- | --- | --- |

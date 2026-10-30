@@ -42,15 +42,7 @@ fn main() {
 
 ## よく使う操作
 
-| C++ `priority_queue` | Rust `BinaryHeap` |
-| --- | --- |
-| `push(x)` | `push(x)` |
-| `top()` | `peek()` |
-| `pop()` | `pop()` |
-| `size()` | `len()` |
-| `empty()` | `is_empty()` |
-
-C++の `priority_queue::pop()` は値を返さないが、Rustの `BinaryHeap::pop()` は削除した値を返す。
+`push(x)` で要素を追加し、`peek()` で最優先の値を参照、`pop()` で削除して値を受け取る。要素数は `len()`、空かどうかは `is_empty()` で確認する。
 
 | 操作 | 計算量 |
 | --- | --- |
