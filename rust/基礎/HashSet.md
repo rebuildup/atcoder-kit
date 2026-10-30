@@ -4,22 +4,17 @@
 
 ## n個の整数から、異なる値の個数を数える
 
-そのままコピーして使える例。各整数が**1行に1個ずつ**与えられる場合を想定する。
+**提出テンプレートの `read<T>()` を使う例。** 整数が同じ行に並んでいても、複数行に分かれていても使える。
 
 ```rust
 use std::collections::HashSet;
 
-fn read_i() -> i64 {
-    let mut b = String::new();
-    std::io::stdin().read_line(&mut b).unwrap();
-    b.trim().parse::<i64>().unwrap()
-}
-
 fn main() {
-    let n = read_i();
+    let n: usize = read();
     let mut d = HashSet::new();
     for _ in 0..n {
-        d.insert(read_i());
+        let x: i64 = read();
+        d.insert(x);
     }
     println!("{}", d.len());
 }
@@ -46,9 +41,9 @@ fn main() {
 - `HashSet::new()`：空の集合を作る。`insert` した値から要素型が推論される。
 - `insert(x)`：まだない値だけを追加する。既にあれば集合の中身は増えない。
 - `len()`：重複を除いた要素数を返す（`usize`）。
-- `for _ in 0..n`：`n` 回繰り返すだけなら `_` でよい。今回は配列の添字がないので、`n` が `i64` でも問題ない。
+- `for _ in 0..n`：`n` 回繰り返すだけなら `_` でよい。`n` は通常 `usize` で受け取る。
 
-注意：`read_i()` は1行から整数を1個読む。数値が同じ行に複数並ぶ入力では、入力方法を変更する。
+`read()` は[標準テンプレート](../template.rs)にある。上の例は `main()` 部分を差し替え、`use` を追加して使う。**別の `read_i()` は不要**。
 
 ## 基本操作をコピーする
 
@@ -78,11 +73,11 @@ d.remove(&10);               // 10を削除
 | 接頭辞 | 展開するコード | 必要なもの |
 | --- | --- | --- |
 | `hashset` または `hset` | `use` と `let mut d = HashSet::new();` | 後から `insert` などで要素型を決める |
-| `hsetn` | `use`、初期化、`n` 回 `read_i()` して `len()` を出力 | 変数 `n`、関数 `read_i()`（`stdri` で用意できる） |
+| `hsetn`（旧方式） | `use`、初期化、`n` 回 `read_i()` して `len()` を出力 | **旧来の行入力を使うときのみ**。変数 `n` と関数 `read_i()`（`stdri`）が必要 |
 
 **`hashset` と `hsetn` は別の書き方なので、一度に両方を展開しない。** `use` は関数内に置けるため、どちらも `main` の中で展開できる。
 
-`hsetn` が展開するコード（変数名や `n`、読み取り部分は編集できる）：
+`hsetn` が展開する**旧式コード**（現在の標準 `read<T>()` を使う場合は上の `for` の例を使う）：
 
 ```rust
 use std::collections::HashSet;
@@ -98,11 +93,11 @@ println!("{}", d.len());
 `HashSet` へ要素を集めるなら、次も同じ結果になる。
 
 ```rust
-let d: HashSet<_> = (0..n).map(|_| read_i()).collect();
+let d: HashSet<i64> = (0..n).map(|_| read()).collect();
 println!("{}", d.len());
 ```
 
-ただし `HashSet` の `use` と `read_i()` の定義が必要。**今回は `for` と `insert` の方が処理を読み取りやすいので、短くするためだけに置き換えなくてよい。**
+ただし `HashSet` の `use` とテンプレートの `read<T>()` が必要。**今回は `for` と `insert` の方が処理を読み取りやすいので、短くするためだけに置き換えなくてよい。**
 
 ## BTreeSet：順序付き集合
 
